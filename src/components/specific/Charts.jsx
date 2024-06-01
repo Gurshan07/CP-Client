@@ -32,7 +32,7 @@ const data={
     labels,
     datasets:[{
         data:value,
-        label:'Users',
+        label:'Messages',
         fill:true,
         backgroundColor:'grey',
         borderColor:'white'
