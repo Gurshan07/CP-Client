@@ -210,24 +210,27 @@ const Groups = () => {
 
             </Grid>
 
-            <Grid item xs={12} sm={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',position: 'relative', padding: '1rem 3rem' }} >
-                {IconBtns}
-                {groupName && (
-                    <>{GroupName}
-                        <Typography className='unselectable' fontWeight={'bold'} color={'white'} margin={'2rem'} alignSelf={'flex-start'} variant='body1'>Members</Typography>
-                        <Stack maxWidth={'45rem'}  width={'100%'} className='unselectable' color={'grey'} boxSizing={'border-box'} padding={{ sm: '1rem', xs: '0', md: '1rem 2rem' }}  borderRadius={'10px'} border={'0.1px solid grey'} height={'50vh'} overflow={'auto'}>
-                          
-                        {isLoadingRemoveMember ? (<CircularProgress />
-              ) : (
-                members.map((i) => (
-                  <UserItem user={i} key={i._id} isAdded styling={{ boxShadow: "0 0 0.5rem  rgba(0,0,0,0.2)", padding: "1rem 2rem", borderRadius: "1rem",}} handler={removeMemberHandler}/> ))
-              )}
-                           
-                            </Stack>
-                        {ButtonGroup}
-
-                    </>)}
-            </Grid>
+           <Grid item xs={12} sm={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'elative', padding: '1rem 3rem' }} >
+  {IconBtns}
+  {groupName? (
+    <>
+      {GroupName}
+      <Typography className='unselectable' fontWeight={'bold'} color={'white'} margin={'2rem'} alignSelf={'flex-start'} variant='body1'>Members</Typography>
+      <Stack maxWidth={'45rem'} width={'100%'} className='unselectable' color={'grey'} boxSizing={'border-box'} padding={{ sm: '1rem', xs: '0', md: '1rem 2rem' }} borderRadius={'10px'} border={'0.1px solid grey'} height={'50vh'} overflow={'auto'}>
+        {isLoadingRemoveMember? (
+          <CircularProgress />
+        ) : (
+          members.map((i) => (
+            <UserItem user={i} key={i._id} isAdded styling={{ boxShadow: "0 0 0.5rem  rgba(0,0,0,0.2)", padding: "1rem 2rem", borderRadius: "1rem", }} handler={removeMemberHandler} />
+          ))
+        )}
+      </Stack>
+      {ButtonGroup}
+    </>
+  ) : (
+    <Typography variant="h6" color="gray" textAlign="center" margin="2rem">No Groups Available</Typography>
+  )}
+</Grid>
 
             {isAddMember && <Suspense fallback={<Backdrop open />}><AddMemberDialog chatId={chatId} /></Suspense>}
 
@@ -265,7 +268,7 @@ const GroupsList = ({ w = '100%', myGroups = [], chatId }) => (
 
 {/* {(myGroups.map((group) => (<GroupsListItem group={group} chatId={chatId} key={group._id} />)))} */}
       
-        {myGroups.length > 0 ? (myGroups.map((group) => (<GroupsListItem group={group} chatId={chatId} key={group._id} />))) : (<Typography textAlign={'center'} padding="1rem" color={'white'} fontWeight={'bold'} >No Groups</Typography>)}
+        {myGroups.length > 0 ? (myGroups.map((group) => (<GroupsListItem group={group} chatId={chatId} key={group._id} />))) : (<Typography textAlign={'center'} padding="1rem" color={'white'} fontWeight={'bold'} >No Groups to edit</Typography>)}
     </Stack>
 )
 
