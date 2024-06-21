@@ -3,7 +3,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import DoneIcon from '@mui/icons-material/Done';
 import { Avatar, Button, Dialog, DialogTitle,Skeleton, ListItem, Stack, Typography } from '@mui/material';
 import React, { memo } from 'react';
-import { sampleNotifications } from '../../constants/sampleData';
+
 import { useDispatch, useSelector } from "react-redux";
 import { useAsyncMutation, useErrors } from "../../hooks/hook";
 import {
