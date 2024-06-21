@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Edit as EditIcon, Menu as MenuIcon } from '@mui/icons-material';
 import { Link } from '../components/styles/StyledComponents';
 import AvatarCard from '../components/shared/AvatarCard';
-import { SampleChats, sampleUsers } from '../constants/sampleData';
+
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
