@@ -11,6 +11,6 @@ RUN npm run build
 
 EXPOSE 3001
 
-ENV VITE_SERVER=
+ENV VITE_SERVER=http://0.0.0.0:3000
 
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "preview", "--", "--host"]
