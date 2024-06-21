@@ -7,9 +7,10 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-
 RUN npm run build
 
-EXPOSE 4173
+EXPOSE 3001
+
+ENV VITE_SERVER=
 
 CMD ["npm", "run", "preview"]
