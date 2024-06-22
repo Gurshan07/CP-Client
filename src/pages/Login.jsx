@@ -49,7 +49,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        `https://cp-server-pd08.onrender.com/api/v1/user/login`,
+        `${server}/api/v1/user/login`,
         {
           username: username.value,
           password: password.value,
