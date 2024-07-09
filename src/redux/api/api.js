@@ -4,7 +4,9 @@ import { server } from "../../constants/config";
 const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: `${server}/api/v1/` }),
-  tagTypes: ["Chat", "User", "Message"],
+  tagTypes: ["Chat", "User", "Message","Counter"
+
+  ],
 
   endpoints: (builder) => ({
     myChats: builder.query({
@@ -14,6 +16,29 @@ const api = createApi({
       }),
       providesTags: ["Chat"],
     }),
+
+
+
+
+    getCounter: builder.query({
+      query: () => ({
+        url: "counter",
+        credentials: "include",
+      }),
+      providesTags: ["Counter"],
+    }),
+    updateCounter: builder.mutation({
+      query: (newValue) => ({
+        url: "counter",
+        method: "POST",
+        credentials: "include",
+        body: { value: newValue },
+      }),
+      invalidatesTags: ["Counter"],
+    }),
+
+
+
 
     searchUser: builder.query({
       query: (name) => ({
@@ -180,4 +205,6 @@ export const {
   useAddGroupMembersMutation,
   useDeleteChatMutation,
   useLeaveGroupMutation,
+  useGetCounterQuery,  
+  useUpdateCounterMutation,  
 } = api;

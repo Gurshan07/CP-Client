@@ -18,6 +18,7 @@ import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
 import { server } from "../constants/config";
 import { userExists } from "../redux/reducers/auth";
 import { usernameValidator } from "../utils/validators";
+import MoecounterComponent from "../components/moeCounter";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -110,7 +111,8 @@ const Login = () => {
   };
 
 
-    return (<Container component={'main'} maxWidth='xs' sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    return (
+    <Container component={'main'} maxWidth='xs' sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
 
         <Paper elevation={3} sx={{ color: 'white', bgcolor: '#1d1d1d', padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
@@ -129,7 +131,7 @@ const Login = () => {
                                 <Button sx={{ marginTop: '1rem', fontWeight: 'bold', }} variant='outlined' color='success' disabled={isLoading} onClick={toggleLogin}>Sign Up </Button>
                             </div>
                         </form>
-
+                    <MoecounterComponent/>
                     </>
                 )
 
@@ -176,6 +178,9 @@ const Login = () => {
             }
 
         </Paper>
+        <a href="/admin">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa29YUqSmxdTUV97VUsQQIgqbdosW6ZjbucA&s" style={{borderRadius:'50% ',height:'2rem',position: 'fixed',bottom: '2rem',right: '2rem'}} />
+        </a>
     </Container>
     )
 

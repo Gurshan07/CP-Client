@@ -8,7 +8,7 @@ import { SearchField, CurveButton } from '../../components/styles/StyledComponen
 import { DoughnutChart, LineChart } from '../../components/specific/Charts';
 import { server } from "../../constants/config";
 import { useErrors } from "../../hooks/hook";
-
+import MoecounterComponentShow from './moeCountershow';
 const Dashboard = () => {
         
     const { loading, data, error } = useFetchData(
@@ -28,9 +28,10 @@ const Dashboard = () => {
     const Appbar =
      <Paper  elevation={3} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem',bgcolor:'#1d1d1d',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'},  }} >
         <Stack direction={'row'} alignItems={'center'} spacing={'1rem'} color={'white'} >
-            <AdminPanelSettingsIcon />
-            <SearchField  placeholder='Search ...' />
-            <CurveButton>Search</CurveButton>
+            <MoecounterComponentShow/>
+            {/* <AdminPanelSettingsIcon /> */}
+            {/* <SearchField  placeholder='Search ...' /> */}
+            {/* <CurveButton>Search</CurveButton> */}
             <Box flexGrow={1} />
             <Typography display={{ xs: 'none', lg: 'block' }} color={'white'} textAlign={'center'} >{moment().format('dddd, D MMMM YYYY ')}</Typography>
             <NotificationsNoneIcon />
@@ -46,7 +47,7 @@ const Dashboard = () => {
         </Stack>
 
     return (
-        <AdminLayout >
+        <AdminLayout  >
              {loading ? (
         <Skeleton height={"100vh"} />
       ) : (

@@ -27,14 +27,17 @@ const AdminLogin = () => {
 
 
   return (
-    <Container  component={'main'} maxWidth='xs' sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Container  component={'main'} maxWidth='xs' sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
 
-        <Paper  elevation={3} sx={{ color: 'white', bgcolor: '#1d1d1d', padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Paper  elevation={1} sx={{ color: 'white', bgcolor: '#1d1d1d', padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                
         <>
-  <Typography variant='h4' className='unselectable' marginBottom={'2rem'} fontWeight={'bold'} textAlign={'center'} >Admin</Typography>
+  <Typography variant='h4' className='unselectable' marginBottom={'1rem'} fontWeight={'bold'} textAlign={'center'} >Admin</Typography>
+
   
-  <form style={{  width: '100%', marginTop: '10rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onSubmit={submitHandler}>
+  <form style={{  width: '100%', marginTop: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }} onSubmit={submitHandler}>
+  <img src="https://preview.redd.it/ldz4i6wdl7r21.png?auto=webp&s=04259c8d9027041d53307b072708f4f61a711980" style={{height:'10rem',marginBottom:'2rem',borderRadius:'15%'}} />
+
     <TextField style={{ margin: '1rem auto' }} className='customTextField' id='customTextFieldText' required  label="Secret Key" type='password' margin='normal' variant='outlined' value={secretKey.value} onChange={secretKey.changeHandler} />
     <Button sx={{ marginTop: '1rem' }} variant='outlined' color='secondary' type='submit' >Login</Button>
   </form>
