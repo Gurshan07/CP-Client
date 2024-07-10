@@ -27,26 +27,6 @@ const MessagesManagement = lazy(() =>
 
 const App = () => {
 
-  useEffect(() => { //this is for moecounter
-    const fetchAndIncrementCounter = async () => {
-      try {
-        const response = await axios.get('/api/v1/counter');
-        let currentNumber = response.data.value;
-
-        const newNumber = currentNumber + 1;
-
-        await axios.post('/api/v1/counter', { value: newNumber });
-
-        console.log('New counter value:', newNumber);
-      } catch (error) {
-        console.error('Error fetching or updating counter value:', error);
-      }
-    };
-
-    fetchAndIncrementCounter();
-  }, []);
-
-
   const { user, loader } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
