@@ -46,8 +46,7 @@ const Search=()=> {
   }, [search.value]);
 
     return (
-    <Dialog  open={isSearch} onClose={searchCloseHandler} sx={{opacity:'0.97', bgcolor:'#1d1d1d',
-    '& .MuiDialog-paperScrollPaper': {
+    <Dialog   PaperProps={{ sx: { bgcolor: '#0f121a' } }} open={isSearch} onClose={searchCloseHandler} sx={{ opacity:'0.97', bgcolor:'#0f121a', '& .MuiDialog-paperScrollPaper': {
       scrollbarGutter: 'stable',
       '&::-webkit-scrollbar': {
         width: '5px',
@@ -62,14 +61,17 @@ const Search=()=> {
         },
       },
       '&::-webkit-scrollbar-track': {
-        backgroundColor: '#1d1d1d',
+        backgroundColor: 'black',
         
-      },}} }>
-            <Stack  className='unselectable'   p={'2rem'} direction={'column'} maxWidth={'25rem'}  bgcolor={'#1d1d1d'} color={'white'}  >
+      },}
+   } }>
+        <Box >
+
+            <Stack  className='unselectable'  p={'2rem'} direction={'column'} maxWidth={'25rem'} maxHeight={'25rem'} bgcolor={'#0f121a'} color={'white'}  >
 
                 <DialogTitle   textAlign={'center'}>Find People</DialogTitle>
 
-                <TextField className='customTextField' id='customTextFieldText' value={search.value} onChange={search.changeHandler} variant='outlined' size='small' autoComplete='off' InputProps={{startAdornment:(<InputAdornment position='start' > <SearchIcon/> </InputAdornment>),}} />
+                <TextField className='customTextField' id='customTextFieldText' value={search.value} onChange={search.changeHandler} variant='outlined' size='small' autoComplete='off' InputProps={{startAdornment:(<InputAdornment position='start' > <SearchIcon sx={{color:'white'}}/> </InputAdornment>),}} />
 
             <List >
             {users.map((i)=>(
@@ -78,6 +80,8 @@ const Search=()=> {
             </List>
 
             </Stack>
+        </Box>
+
     </Dialog>
     )
 }

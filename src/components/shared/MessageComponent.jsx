@@ -16,8 +16,8 @@ const MessageComponent = ({message,user}) => {
     <motion.div 
     initial={{ opacity: 0, x: "-100%" }}
     whileInView={{ opacity: 1, x: 0 }}
-    style={{alignSelf:sameSender?'flex-end':'flex-start',backgroundColor:'#212121',borderRadius:'15px',padding:'0.5rem',width:'fit-content',border:'2px solid #282828'}} >
-      {!sameSender && <Typography fontWeight={'bold'} color={'#98FB98'} variant='caption'>{sender.name}</Typography>}
+    style={{alignSelf:sameSender?'flex-end':'flex-start',backgroundColor:'rgb(138, 145, 165,0.05)',borderRadius:'15px',padding:'0.5rem',width:'fit-content',border :'solid 0.5px rgb(138, 145, 165,0.25)'}} >
+      {!sameSender && <Typography fontWeight={'bold'} color={'white'} variant='caption'>{sender.name}</Typography>}
       {content && <Typography>{content}</Typography>}
 
         {attachments.length>0  && attachments.map((attachment,index)=>{

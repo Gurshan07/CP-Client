@@ -5,7 +5,6 @@ import { setIsFileMenu, setUploadingLoader } from "../../redux/reducers/misc";
 import {
   AudioFile as AudioFileIcon,
   Image as ImageIcon,
-  UploadFile as UploadFileIcon,
   VideoFile as VideoFileIcon,
 } from "@mui/icons-material";
 import toast from "react-hot-toast";

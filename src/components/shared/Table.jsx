@@ -4,11 +4,11 @@ import {DataGrid}from '@mui/x-data-grid'
 
 const Table = ({rows,columns,heading,rowHeight=50}) => {
   return (
-    <Container sx={{height:'100vh',}} >
+    <Container sx={{height:'100vh',bgcolor:'#0f121a'}} >
         
-        <Paper elevation={3} sx={{padding:'1rem 4rem',borderRadius:'1rem',margin:'auto',width:'100%',overflow:'hidden',height:'100%',boxShadow:'none',bgcolor:'#1d1d1d',color:'white',fontWeight:'bold'}} >
+        <Paper elevation={3} sx={{padding:'1rem 4rem',borderRadius:'1rem',margin:'auto',width:'100%',overflow:'hidden',height:'100%',bgcolor:'#0f121a',boxShadow:'none',color:'white',fontWeight:'bold'}} >
             <Typography textAlign={'center'} variant='h4' sx={{margin:'2rem',textTransform:'uppercase'}} >{heading}</Typography>
-            <DataGrid sx={{color:'white',border:'none','.table-header':{bgcolor:'#1d1d1d',color:'white'},
+            <DataGrid sx={{color:'white',border:'none','.table-header':{bgcolor:'#0f121a',color:'white'},
           '& .MuiDataGrid-scrollbar': {
             '&::-webkit-scrollbar': {
               width: '5px',
@@ -16,14 +16,14 @@ const Table = ({rows,columns,heading,rowHeight=50}) => {
               borderRadius: '10px',
             },
             '&::-webkit-scrollbar-thumb': {
-              backgroundColor: 'grey',
+              backgroundColor: 'white',
               borderRadius: '10px',
               '&:hover': {
                 backgroundColor: 'white',
               },
             },
             '&::-webkit-scrollbar-track': {
-              backgroundColor: '#1d1d1d',
+              backgroundColor: '#0f121a',
               borderRadius: '10px',
             },
                         

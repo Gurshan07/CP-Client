@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { Fragment, useCallback, useEffect, useRef, useState, } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState, } from "react";
 import AppLayout from '../components/layout/AppLayout'
 import { IconButton, Skeleton, Stack } from '@mui/material'
 import { AttachFile as AttachFileIcon, Send as SendIcon } from '@mui/icons-material'
@@ -23,11 +23,6 @@ import { setIsFileMenu } from "../redux/reducers/misc";
 import { removeNewMessagesAlert } from "../redux/reducers/chat";
 import { TypingLoader } from "../components/layout/Loaders";
 import { useNavigate } from "react-router-dom";
-
-// const user={
-//     _id:'abcdef',
-//     name:'Human',
-// }
 
 const Chat = ({ chatId, user }) => {
   const socket = getSocket();
@@ -91,7 +86,6 @@ const Chat = ({ chatId, user }) => {
 
     if (!message.trim()) return;
 
-    // Emitting the message to the server
     socket.emit(NEW_MESSAGE, { chatId, members, message });
     setMessage("");
   };
@@ -224,13 +218,13 @@ const Chat = ({ chatId, user }) => {
             <AttachFileIcon />
           </IconButton>
 
-          <InputBox placeholder='Type your message here' value={message} onChange={messageOnChange}/>
+          <InputBox placeholder='Type your message here' value={message}  onChange={messageOnChange}/>
 
           <IconButton sx={{
             marginLeft: '1rem', padding: '0.5rem', color: 'grey',
             transition: 'rotate 0.2s ease, background-color 0.2s ease, filter 0.2s ease',
             '&:hover': {
-              rotate: '-30deg', backgroundColor: '#2e2e2e', '& svg': { color: 'white', filter: 'brightness(150%)', },
+              rotate: '-30deg', backgroundColor: 'rgb(138, 145, 165,0.25)', '& svg': { color: 'white', filter: 'brightness(150%)', },
               transition: 'rotate 0.2s ease, background-color 0.2s ease, filter 0.2s ease',
             },
             '&:not(:hover)': { rotate: '0deg', transition: 'rotate 0.2s ease, background-color 0.2s ease, filter 0.2s ease', },

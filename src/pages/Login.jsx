@@ -114,7 +114,7 @@ const Login = () => {
     return (
     <Container component={'main'} maxWidth='xs' sx={{ height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
 
-        <Paper elevation={3} sx={{ color: 'white', bgcolor: '#1d1d1d', padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Paper elevation={3} sx={{ color: 'white', bgcolor: 'rgb(138, 145, 165,0.05)', padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px'}}>
 
             {
                 isLogin ? (

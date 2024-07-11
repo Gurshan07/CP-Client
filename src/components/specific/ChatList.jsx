@@ -12,7 +12,7 @@ const ChatList=({w='100%',chats=[],chatId,onlineUsers=[],newMessagesAlert=[
 })=> {
     
     return (
-        <Stack width={w} direction={'column'} overflow={'auto'}  height={'100%'} sx={{'&::-webkit-scrollbar': {
+        <Stack width={w} direction={'column'} overflow={'auto'} marginTop={'1rem'}  height={'100%'} bgcolor={"#0f121a"} sx={{'&::-webkit-scrollbar': {
             width: '5px',
             height: '8px',
             borderRadius: '10px',

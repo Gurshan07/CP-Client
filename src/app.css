@@ -60,21 +60,14 @@
   }
   .scrollable-container {
     overflow-y: auto;
-    height: 100vh; /* or set a specific height */
+    height: 100vh;  
     margin-top: 20vh;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
-
-  audio::-webkit-media-controls {
-    color: blue;
-  }
-  audio::-webkit-media-controls {
-    color: red;
-  }
   audio::-webkit-media-controls-panel {
-    background-color: grey;
+    background-color:  rgb(138, 145, 165,0.5);
   }
 
   

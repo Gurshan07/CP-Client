@@ -26,7 +26,7 @@ const Dashboard = () => {
       ]);
 
     const Appbar =
-     <Paper  elevation={3} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem',bgcolor:'#1d1d1d',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'},  }} >
+     <Paper  elevation={3} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem',bgcolor:'#0f121a',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'},  }} >
         <Stack direction={'row'} alignItems={'center'} spacing={'1rem'} color={'white'} >
             <MoecounterComponentShow/>
             {/* <AdminPanelSettingsIcon /> */}
@@ -51,20 +51,20 @@ const Dashboard = () => {
              {loading ? (
         <Skeleton height={"100vh"} />
       ) : (
-            <Container sx={{bgcolor:'#1d1d1d'}} component={'main'}  >
+            <Container  sx={{bgcolor:'#0f121a'}} component={'main'}  >
 
                 {Appbar}
 
                 <Stack direction={{xs:'column',lg:'row'}} sx={{gap:'2rem'}} flexWrap={'wrbap'} justifyContent={'center'} alignItems={{xs:'center',lg:'stretch'}}>
 
-                    <Paper elevation={3} sx={{padding: '1.5rem 3.5rem', maxWidth: '45rem', bgcolor:'#1d1d1d',borderRadius: '1rem', width: '100%',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'} }} >
-                        <Typography margin={'2rem 0'} variant='h4'color={'white'} >Last Messages</Typography>
+                    <Paper elevation={3} sx={{padding: '0rem 3.5rem', maxWidth: '45rem',maxHeight:'20rem',  bgcolor:'#0f121a',borderRadius: '1rem', width: '100%',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'} }} >
+                        <Typography margin={'1rem 0'} variant='h6'color={'white'} >Last Messages</Typography>
                         <LineChart value={stats?.messagesChart || []} />
                     </Paper>
 
-                    <Paper  elevation={3} sx={{ padding: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', borderRadius: '1rem', width: { xs: '100%', sm: '50%' }, maxWidth: '25rem',bgcolor:'#1d1d1d',color:'white' ,boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'} }} >
+                    <Paper  elevation={3} sx={{ padding: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', borderRadius: '1rem', width: { xs: '100%', sm: '50%' },maxHeight:'20rem', maxWidth: '25rem',bgcolor:'#0f121a',color:'white' ,boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'} }} >
                        
-                        <DoughnutChart labels={['Single Chats','Group Chats']}value={[stats?.totalChatsCount - stats?.groupsCount || 0,stats?.groupsCount || 0,]} />
+                        <DoughnutChart  labels={['Single Chats','Group Chats']} value={[stats?.totalChatsCount - stats?.groupsCount || 0,stats?.groupsCount || 0,]} />
 
                         <Stack position={"absolute"} direction={'row'} justifyContent={'center'} alignItems={'center'} spacing={"0.5rem"} width={'100%'} height={'100%'} >
                             <GroupIcon sx={{color:'#005717'}} /><Typography>vs</Typography>
@@ -83,7 +83,7 @@ const Dashboard = () => {
 }
 const Widget = ({ title, value, Icon }) =>
 
-    <Paper elevation={10} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem', width: '20rem',bgcolor:'#1d1d1d',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'}  }} >
+    <Paper elevation={10} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem', width: '20rem',bgcolor:'#0f121a',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'}  }} >
         <Stack alignItems={'center'} spacing={'1rem'}>
             <Typography sx={{ color: 'white', borderRadius: '50%', border: '2px solid white', width: '5rem', height: '5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', }}  >{value}</Typography>
           

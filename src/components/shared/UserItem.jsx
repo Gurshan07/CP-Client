@@ -14,7 +14,7 @@ const UserItem = ({ user, handler, handlerIsLoading ,isAdded=false}) => {
                 <Avatar  src={transformImage(avatar)}  />
                 <Typography varient='body1' sx={{flexGrow:1,display:'-webkit-box',WebkitLineClamp:1,WebkitBoxOrient:'vertical',overflow:'hidden',textOverflow:"ellipsis", width:'100%'}}>{name}</Typography>
 
-                <IconButton color='default' size='small'  sx={{bgcolor:'#1d1d1d',color:'grey',"&:hover":{bgcolor:'#2e2e2e','& svg':{color: isAdded ? 'red':'green'}},}} onClick={()=>handler(_id)} disabled={handlerIsLoading} >
+                <IconButton color='default' size='small'  sx={{bgcolor:'',color:'grey',"&:hover":{bgcolor:'rgb(138, 145, 165,0.25)','& svg':{color: isAdded ? 'red':'green'}},}} onClick={()=>handler(_id)} disabled={handlerIsLoading} >
                    
                    {isAdded ? <RemoveIcon  />:<AddIcon />}
                    

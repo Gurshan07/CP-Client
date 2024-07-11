@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useGetCounterQuery, useUpdateCounterMutation } from '../redux/api/api'; // Adjust the import path as needed
+import { useGetCounterQuery, useUpdateCounterMutation } from '../redux/api/api';  
 
 const MoecounterComponent = () => {
   const { data, error, isLoading } = useGetCounterQuery();
   const [updateCounter] = useUpdateCounterMutation();
-  const [hasIncremented, setHasIncremented] = useState(false); // State to track if counter has been incremented
+  const [hasIncremented, setHasIncremented] = useState(false);  
 
   useEffect(() => {
     if (data && !hasIncremented) {
       const newNumber = data.value + 1;
       updateCounter(newNumber);
-      setHasIncremented(true); // Mark as incremented to prevent further increments
+      setHasIncremented(true);  
     }
   }, [data, updateCounter, hasIncremented]);
 

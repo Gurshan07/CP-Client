@@ -11,7 +11,6 @@ import CheckIcon from '@mui/icons-material/Check';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import UserItem from '../components/shared/UserItem';
-import { useMediaQuery } from '@mui/material';
 import { LayoutLoader } from "../components/layout/Loaders";
 import { useDispatch, useSelector } from "react-redux";
 import { useAsyncMutation, useErrors } from "../hooks/hook";
@@ -137,18 +136,18 @@ const Groups = () => {
       removeMember("Removing Member...", { chatId, userId });
     };
   
-    useEffect(() => {
-      if (chatId) {
-        setGroupName(`Group Name ${chatId}`);
-        setGroupNameUpdatedValue(`Group Name ${chatId}`);
-      }
+    // useEffect(() => {
+    //   if (chatId) {
+    //     setGroupName(`Group Name ${chatId}`);
+    //     setGroupNameUpdatedValue(`Group Name is ${chatId}`);
+    //   }
   
-      return () => {
-        setGroupName("");
-        setGroupNameUpdatedValue("");
-        setIsEdit(false);
-      };
-    }, [chatId]);
+    //   return () => {
+    //     setGroupName("");
+    //     setGroupNameUpdatedValue("");
+    //     setIsEdit(false);
+    //   };
+    // }, [chatId]);
 
     const IconBtns =
         (
@@ -204,19 +203,19 @@ const Groups = () => {
       ) : (
         <Grid container height={'100vh'} >
 
-            <Grid item sx={{ display: { xs: 'none', sm: 'block' }, }} sm={4} >
+            <Grid item sx={{ display: { xs: 'none', sm: 'block' }, border:'solid 0.5px rgb(138, 145, 165,0.25)' }} sm={4} >
 
                 <GroupsList myGroups={myGroups?.data?.groups} chatId={chatId} />
 
             </Grid>
 
-           <Grid item xs={12} sm={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'elative', padding: '1rem 3rem' }} >
+           <Grid item xs={12} sm={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', padding: '1rem 3rem' }} >
   {IconBtns}
   {groupName? (
     <>
       {GroupName}
-      <Typography className='unselectable' fontWeight={'bold'} color={'white'} margin={'2rem'} alignSelf={'flex-start'} variant='body1'>Members</Typography>
-      <Stack maxWidth={'45rem'} width={'100%'} className='unselectable' color={'grey'} boxSizing={'border-box'} padding={{ sm: '1rem', xs: '0', md: '1rem 2rem' }} borderRadius={'10px'} border={'0.1px solid grey'} height={'50vh'} overflow={'auto'}>
+      <Typography className='unselectable' fontWeight={'bold'} color={'white'} margin={'2rem'} alignSelf={'flex-start'} variant='h5' marginLeft={'45%'} >Members</Typography>
+      <Stack sx={{bgcolor: 'rgb(138, 145, 165,0.05)',border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px'}}  maxWidth={'45rem'} width={'100%'} className='unselectable' color={'grey'} boxSizing={'border-box'} padding={{ sm: '1rem', xs: '0', md: '1rem 2rem' }} borderRadius={'10px'} border={'0.1px solid grey'} height={'50vh'} overflow={'auto'}>
         {isLoadingRemoveMember? (
           <CircularProgress />
         ) : (
@@ -228,7 +227,7 @@ const Groups = () => {
       {ButtonGroup}
     </>
   ) : (
-    <Typography variant="h6" color="gray" textAlign="center" margin="2rem">No Groups Available</Typography>
+    <Typography variant="h6" color="white" textAlign="center" margin="2rem"> Select a Group</Typography>
   )}
 </Grid>
 
@@ -236,9 +235,9 @@ const Groups = () => {
 
             {confirmDeleteDialog && <Suspense fallback={<Backdrop open />}><ConfirmDeleteDialog open={confirmDeleteDialog} handleClose={closeConfirmDeleteHandler} deleteHandler={deleteHandler} /></Suspense>}
 
-            <Drawer  open={isMobileMenuOpen} onClose={handleMobileClose} sx={{ display: { xs: 'inline', sm: 'none' }, }}>
+            <Drawer PaperProps={{ sx: { bgcolor: '#0f121a' } }} open={isMobileMenuOpen} onClose={handleMobileClose} sx={{ display: { xs: 'inline', sm: 'none' }, }}>
                     
-                <GroupsList  w={'70vw'} myGroups={myGroups?.data?.groups} chatId={chatId} />
+                <GroupsList  w={'50vw'} myGroups={myGroups?.data?.groups} chatId={chatId} />
 
             </Drawer>
 
@@ -246,7 +245,7 @@ const Groups = () => {
     )
 }
 const GroupsList = ({ w = '100%', myGroups = [], chatId }) => (
-    <Stack  width={w} bgcolor={'#1d1d1d'} height={'95vh'}  sx={{overflow:'auto',paddingRight:{xs: '0.5rem', sm: '0.5rem',},
+    <Stack  width={w}  height={'95vh'}  sx={{overflow:'auto',paddingRight:{xs: '0.5rem', sm: '0.5rem',}, bgcolor:'#0f121a',
     
      '&::-webkit-scrollbar': {
         width: '5px',
@@ -261,13 +260,11 @@ const GroupsList = ({ w = '100%', myGroups = [], chatId }) => (
         },
       },
       '&::-webkit-scrollbar-track': {
-        backgroundColor: '#1d1d1d',
+        backgroundColor: 'rgb(138, 145, 165,0.05)',
         borderRadius: '10px',
       },}} >
 
 
-{/* {(myGroups.map((group) => (<GroupsListItem group={group} chatId={chatId} key={group._id} />)))} */}
-      
         {myGroups.length > 0 ? (myGroups.map((group) => (<GroupsListItem group={group} chatId={chatId} key={group._id} />))) : (<Typography textAlign={'center'} padding="1rem" color={'white'} fontWeight={'bold'} >No Groups to edit</Typography>)}
     </Stack>
 )
@@ -276,11 +273,12 @@ const GroupsListItem = memo(({ group, chatId }) => {
     const { name, avatar, _id, } = group;
     return (
         <Box  >
-            <Link sx={{  borderRadius: '15px', display: 'block', justifyContent: 'end',marginTop:'1rem', marginLeft: '0.5rem' ,'&:hover': { backgroundColor: '#2e2e2e', '& svg': { color: 'white', filter: 'brightness(150%)', }, },}} to={`?group=${_id}`} onClick={e => { if (chatId === _id) e.preventDefault() }}>
+            <Link sx={{ borderRadius:'15px',display: 'block', justifyContent: 'end',marginTop:'1rem', marginLeft: '0.5rem' ,'&:hover': { bgcolor: 'rgb(138, 145, 165,0.05)',border :'solid 0.5px rgb(138, 145, 165,0.25)', '& svg': { bgcolor:'blue',color: 'red',  }, },}} to={`?group=${_id}`} onClick={e => { if (chatId === _id) e.preventDefault() }}>
 
                 <Stack direction={'row'} spacing={'1.5rem'} alignItems={'center'} position={'relative'}   >
-                    <AvatarCard avatar={avatar} />
+                  <AvatarCard avatar={avatar} />
                     <Typography  color={'white'} >{name}</Typography>
+                    
                 </Stack>
 
                 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Avatar, Button, Dialog, Skeleton, DialogTitle, ListItem, Stack, TextField, Typography } from '@mui/material';
+import { Avatar, Button, Dialog, Skeleton, DialogTitle, ListItem, Stack, TextField, Typography, Box } from '@mui/material';
 
 import UserItem from '../shared/UserItem';
 import { useInputValidation } from '6pp';
@@ -60,8 +60,11 @@ const NewGroup = () => {
     };
 
     return (
-        <Dialog sx={{ opacity: '0.97' }} onClose={closeHandler} open={isNewGroup}>
-            <Stack p={{ xs: '1rem', sm: '3rem' }} maxWidth={'25rem'} spacing={'1.5rem'} className='unselectable' border={'0.1px solid grey'} borderRadius={'4px'} bgcolor={'#1d1d1d'} color={'white'} >
+        <Dialog  sx={{opacity:'inherit',bgcolor: 'rgb(138, 145, 165,0.01)',}} onClose={closeHandler} open={isNewGroup} >
+            <Box bgcolor={'#0f121a'}>
+
+            
+            <Stack p={{ xs: '1rem', sm: '3rem' }} maxWidth={'25rem'} spacing={'1.5rem'}  className='unselectable' color={'white'} sx={{bgcolor: '#0f121a',border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px'}} >
                 <DialogTitle sx={{ textAlign: 'center' }} fontWeight={'bold'}>
                     New Group
                 </DialogTitle>
@@ -82,6 +85,7 @@ const NewGroup = () => {
                 </Stack>
 
             </Stack>
+            </Box>
         </Dialog>
     )
 

@@ -45,25 +45,10 @@ import {
   
     useErrors([{ isError, error }]);
 
-    // const btn = (
-    //                 <Stack direction={'row'} alignItems={'center'} justifyContent={'space-evenly'} >
-    //                    <Button color='inherit' onClick={closeHandler}>Cancel</Button>
-    //                        <Button color='info' variant='outlined' onClick={addMemberSumbitHandler} disabled={isLoadingAddMember} >Confirm</Button>
-    //                 </Stack>
-    //                 )
     return (
         <Dialog open={isAddMember} onClose={closeHandler}>
-            <Stack p={'2rem'} width={'20rem'} spacing={'2rem'} className='unselectable' sx={{ border: '0.1px solid grey', borderRadius: '4px', backgroundColor: '#1d1d1d', color: 'grey' }} >
-                
-
-                {/* <Stack spacing={'1rem'}>
-                    
-                    {members.length > 0 ? ( <>
-                        <DialogTitle textAlign={'center'} color={'white'} fontWeight={'bold'}>Add Member</DialogTitle>
-                     {sampleUsers.map(i => (<UserItem key={i._id} user={i} handler={selectMemberHandler} isAdded={selectedMembers.includes(i._id)} /> ))} {btn}</>)
-                        : <Typography textAlign={'center'}>No Friends </Typography>
-                    }
-                </Stack> */}
+            <Stack p={'2rem'} width={'20rem'} spacing={'2rem'} className='unselectable' sx={{ border: '0.1px solid grey', borderRadius: '4px', backgroundColor: '#0f121a', color: 'grey' }} >
+          
 
 <Stack spacing={"1rem"}>
           {isLoading ? (<Skeleton />) : data?.friends?.length > 0 ? (data?.friends?.map((i) => (

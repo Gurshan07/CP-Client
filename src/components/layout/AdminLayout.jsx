@@ -98,12 +98,12 @@ if(!isAdmin) return <Navigate to='/admin' />
 
             </Grid>
 
-            <Grid item xs={12} md={8} lg={9} sx={{ bgcolor: '#1d1d1d' }}>
+            <Grid item xs={12} md={8} lg={9} sx={{ bgcolor: '#0f121a' }}>
                 {children}
             </Grid>
 
             <Drawer  open={isMobile} onClose={handleClose}>
-                <Box sx={{bgcolor:'#1d1d1d',height:'100%'}}>
+                <Box sx={{bgcolor:'#0f121a',height:'100%'}}>
                 <Sidebar w='50vw' />
                 </Box>
             </Drawer>

@@ -111,12 +111,12 @@ const AppLayout = () => (WrappedComponent) => {
             },
           }} >
 
-            <Box sx={{ bgcolor: '#1d1d1d', height: '100%' }}>
+            <Box sx={{ bgcolor: '#0f121a', height: '100%' }}>
               {data?.chats?.length === 0 ?
                 <Typography className='unselectable' p={'2rem'} variant='h5' textAlign={'center'} color={'white'}>No Friends Added</Typography>
                 :
                 <ChatList
-                  w="70vw"
+                  w="65vw"
                   chats={data?.chats}
                   chatId={chatId}
                   handleDeleteChat={handleDeleteChat}

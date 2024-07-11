@@ -39,7 +39,7 @@ const data={
     }]
 }
 
-  return  <Line data={data} />
+  return  <Line  data={data} />
 }
 
 const doughnutChartOptions={
@@ -69,7 +69,7 @@ const DoughnutChart = ({value=[],labels=[]}) => {
     }
 
     return (
-     <Doughnut style={{zIndex:10}} data={data} options={doughnutChartOptions} />
+     <Doughnut  style={{zIndex:10 }} data={data} options={doughnutChartOptions} />
     )
   }
 

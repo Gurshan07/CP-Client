@@ -30,10 +30,10 @@ padding:1rem;
   outline: none;
   padding: 0 3rem;
   border-radius: 1.5rem;
-  background-color: #1d1d1d;
+  background-color: rgb(138, 145, 165,0.05);
 
   &:focus {
-    box-shadow: 0 0 2px 1px rgba(255, 255, 225, 0.7);
+    box-shadow: 0 0 2px 1px rgb(225, 225, 225);
     transition: box-shadow 0.3s ease-in-out;
   }
 `;

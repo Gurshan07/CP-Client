@@ -1,37 +1,38 @@
 import { Grid, Skeleton, Stack } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BouncingSkeleton } from "../styles/StyledComponents";
-
+import MoecounterComponentEverySec from "../moeCounterEverySec";
 const LayoutLoader = () => {
+  const [loadingText, setLoadingText] = useState('Loading');
 
-    return (
-        <Grid container height={'calc(100vh-4rem)'} spacing={'1rem'}>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoadingText(prevText => {
+        switch (prevText) {
+          case 'Loading': return 'Loading.';
+          case 'Loading.': return 'Loading..';
+          case 'Loading..': return 'Loading...';
+          default: return 'Loading';
+        }
+      });
+    }, 1000);  
 
-            <Grid item sm={4} md={3} sx={{ display: { xs: 'none', sm: 'block' }, }} height={'100%'} bgcolor='#1d1d1d; '>
-                <Skeleton variant='rectangular' height={'100vh'} />
-            </Grid>
+    return () => clearInterval(interval);
+  }, []);
 
+  return (
+    <>
+    <div style={{height:'30vh'}}></div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '30vh' }}>
+        <div style={{ width: 100 }}>
+          <MoecounterComponentEverySec />
+        </div>
+      </div>
+      <h2 style={{ color: 'white', textAlign: 'center' }}>{loadingText}</h2>
+    </>
+  );
+};
 
-            <Grid item xs={12} sm={8} md={5} lg={6} height={'100%'} bgcolor='#1d1d1d; '>
-
-               <Stack spacing={'1.5rem'}>
-               {Array.from({ length: 10 }).map((_, index) => (
-                    <Skeleton key={index} variant='rounded' height={'5rem'} />
-
-                ))}
-               </Stack>
-
-            </Grid>
-
-
-            <Grid item md={4} lg={3} sx={{ display: { xs: 'none', md: 'block' }, }} height={'100%'} bgcolor='#1d1d1d; '>
-                <Skeleton variant='rectangular' height={'100vh'} />
-            </Grid>
-
-
-        </Grid>
-    )
-}
 const TypingLoader = () => {
     return (
       <Stack
@@ -45,7 +46,7 @@ const TypingLoader = () => {
           width={10}
           height={10}
           style={{
-            backgroundColor:'#353535',
+            backgroundColor:'#ffff',
             animationDelay: "0.1s",
           }}
         />
@@ -54,7 +55,7 @@ const TypingLoader = () => {
           width={10}
           height={10}
           style={{
-            backgroundColor:'#353535',
+            backgroundColor:'#ffff',
             animationDelay: "0.2s",
           }}
         />
@@ -63,7 +64,7 @@ const TypingLoader = () => {
           width={10}
           height={10}
           style={{
-            backgroundColor:'#353535',
+            backgroundColor:'#ffff',
             animationDelay: "0.4s",
           }}
         />
@@ -72,7 +73,7 @@ const TypingLoader = () => {
           width={10}
           height={10}
           style={{
-            backgroundColor:'#353535',
+            backgroundColor:'#ffff',
             animationDelay: "0.6s",
           }}
         />

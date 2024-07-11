@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { memo } from "react";
 import { Link } from '../styles/StyledComponents'
-import { Stack, Typography,Box } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import AvatarCard from './AvatarCard'
 import { motion } from "framer-motion";
 const ChatItem = ({
@@ -15,7 +15,7 @@ const ChatItem = ({
   index = 0,
   handleDeleteChat,
 }) => {return <Link  
-  sx={{color:'#cfcfcf',padding:'0',marginTop:'1rem',marginRight:'1rem',marginLeft:'0.5rem', borderRadius:'10px',transition:'background-color 0.5s ease','&:hover': {backgroundColor: '#2e2e2e', '& svg': {color: 'white',filter: 'brightness(10%)'},}}}
+  sx={{color:'white',padding:'0',marginTop:'1rem',marginRight:'1rem',marginLeft:'0.5rem', borderRadius:'15px','&:hover': { bgcolor: 'rgb(138, 145, 165,0.05)',border :'solid 0.5px rgb(138, 145, 165,0.25)', '& svg': { bgcolor:'blue',color: 'white',  }, }}}
   to={`/chat/${_id}`} onContextMenu={(e)=>handleDeleteChat(e,_id,groupChat)}>
     
       <motion.div 
@@ -23,9 +23,9 @@ const ChatItem = ({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 * index }}
       style={{
-       backgroundColor:sameSender? '#404040':'unset',
+       backgroundColor:sameSender? 'rgb(138, 145, 165,0.25)':'unset',
         
-       borderRadius:'10px',
+       borderRadius:'15px',
         display:'flex',
         gap:'1rem',
         alignItems:'center',

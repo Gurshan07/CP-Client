@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import ClearIcon from '@mui/icons-material/Clear';
 import DoneIcon from '@mui/icons-material/Done';
-import { Avatar, Button, Dialog, DialogTitle,Skeleton, ListItem, Stack, Typography } from '@mui/material';
+import { Avatar, Button, Dialog, DialogTitle,Skeleton, ListItem, Stack, Typography, Box } from '@mui/material';
 import React, { memo } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
@@ -32,8 +32,10 @@ const Notifications=()=> {
     useErrors([{ error, isError }]);
 
     return ( 
-    <Dialog open={isNotification} onClose={closeHandler}>
-            <Stack p={{xs:'1rem',sm:'2rem'}} maxWidth={'25rem'} className='unselectable' border={'0.1px solid grey'} borderRadius={'4px'}  bgcolor={'#1d1d1d'} color={'white'} >
+    <Dialog open={isNotification} onClose={closeHandler} >
+      <Box sx={{bgcolor:'#0f121a'}}>
+
+            <Stack p={{xs:'1rem',sm:'2rem'}} maxWidth={'25rem'} className='unselectable' border={'solid 0.5px rgb(138, 145, 165,1)'} borderRadius={'15px'}  bgcolor={'#0f121a'} color={'white'} >
                 <DialogTitle fontWeight={'bold'}>
                     Friend Requests
                 </DialogTitle>
@@ -42,12 +44,14 @@ const Notifications=()=> {
           <>
             {data?.allRequests.length > 0 ? (data?.allRequests?.map(({ sender, _id }) => (<NotificationItem sender={sender} _id={_id} handler={friendRequestHandler} key={_id} /> ))
             ) : (
-              <Typography textAlign={"center"}>0 notifications 🫠</Typography>
+              <Typography textAlign={"center"}> No notifications </Typography>
             )}
           </>
         )}
 
             </Stack>
+      </Box>
+
     </Dialog>
     )
 }

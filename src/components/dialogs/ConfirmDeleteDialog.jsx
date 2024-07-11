@@ -5,7 +5,7 @@ const ConfirmDeleteDialog = ({open,handleClose,deleteHandler}) => {
   return (
    <Dialog open={open} onClose={handleClose} sx={{opacity:'0.97'}}  >
 
-    <Box className='unselectable' border={'0.1px solid grey'} borderRadius={'4px'}  bgcolor={'#1d1d1d'} color={'white'}>
+    <Box className='unselectable' border={'0.1px solid grey'} borderRadius={'4px'}  bgcolor={'#0f121a'} color={'white'}>
 
     <DialogTitle >Confirm Delete</DialogTitle>
     <DialogContent>

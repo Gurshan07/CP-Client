@@ -78,18 +78,18 @@ const Header = () => {
 
     <Box sx={{ flexGrow: 1 }} height={'4rem'}>
 
-      <AppBar position='static' sx={{ bgcolor: '#1d1d1d' }}>
+      <AppBar position='static' sx={{ bgcolor: '#0f121a' ,boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.9)',}}>
 
         <Toolbar>
         <Link href="/" underline="none" color={'gray'} >
-  <Typography className='unselectable' variant='h5' sx={{ display: { xs: 'none', sm: 'block', }, }}>
+  <Typography className='unselectable' variant='h5' sx={{ display: { xs: 'none', sm: 'block', },color:'white' }}>
     ChatPulse
   </Typography>
 </Link>
 
           <Box sx={{ display: { xs: 'block', sm: 'none' }, }}>
             <IconButton color='white' onClick={handleMobile}>
-              <MenuIcon />
+              <MenuIcon sx={{color:'white'}} />
             </IconButton>
           </Box>
 
