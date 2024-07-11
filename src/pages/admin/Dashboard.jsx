@@ -1,10 +1,8 @@
-import React from 'react'
 import { useFetchData } from "6pp";
 import AdminLayout from '../../components/layout/AdminLayout'
 import { Box, Container, Paper, Stack, Typography,Skeleton } from '@mui/material'
-import { AdminPanelSettings as AdminPanelSettingsIcon, NotificationsNone as NotificationsNoneIcon, Person as PersonIcon, Widgets, Group as GroupIcon, Message as MessageIcon } from '@mui/icons-material';
+import {  Person as PersonIcon, Group as GroupIcon, Message as MessageIcon } from '@mui/icons-material';
 import moment from 'moment';
-import { SearchField, CurveButton } from '../../components/styles/StyledComponents';
 import { DoughnutChart, LineChart } from '../../components/specific/Charts';
 import { server } from "../../constants/config";
 import { useErrors } from "../../hooks/hook";
@@ -29,12 +27,9 @@ const Dashboard = () => {
      <Paper  elevation={3} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem',bgcolor:'#0f121a',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'},  }} >
         <Stack direction={'row'} alignItems={'center'} spacing={'1rem'} color={'white'} >
             <MoecounterComponentShow/>
-            {/* <AdminPanelSettingsIcon /> */}
-            {/* <SearchField  placeholder='Search ...' /> */}
-            {/* <CurveButton>Search</CurveButton> */}
+            
             <Box flexGrow={1} />
             <Typography display={{ xs: 'none', lg: 'block' }} color={'white'} textAlign={'center'} >{moment().format('dddd, D MMMM YYYY ')}</Typography>
-            <NotificationsNoneIcon />
         </Stack>
     </Paper>
 

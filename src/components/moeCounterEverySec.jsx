@@ -54,7 +54,10 @@ const MoecounterComponentEverySec = () => {
   }, [number, theme]);
 
   const renderMessage = () => {
-    if (number > 30) return "Almost Done!";
+    if (number > 80) return "Almost Done!";
+    if (number > 65) return "Just a bit more!";
+    if (number > 50) return "Making progress!";
+    if (number > 35) return "Almost Done!";
     if (number > 20) return "Just a little more";
     if (number > 10) return "Giving Server a push!";
     return "";

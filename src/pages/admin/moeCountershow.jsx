@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useGetCounterQuery, useUpdateCounterMutation } from '../../redux/api/api'; // Adjust the import path as needed
-import { color } from 'framer-motion';
+import  { useState, } from 'react';
+import { useGetCounterQuery } from '../../redux/api/api'; 
 
 const MoecounterComponentShow = () => {
   const { data, error, isLoading } = useGetCounterQuery();
-  const [updateCounter] = useUpdateCounterMutation();
-  const [theme, setTheme] = useState(getRandomTheme()); // Add a state for theme
+  const [theme, setTheme] = useState(getRandomTheme());
 
 
   if (isLoading) {
@@ -16,19 +14,18 @@ const MoecounterComponentShow = () => {
     return <div>Error loading counter value: {error.message}</div>;
   }
 
-  const number = data ? data.value : 0; // Fallback to 0 if data is not available
+  const number = data ? data.value : 0; 
 
   const link = `https://api.sefinek.net/api/v2/moecounter?number=${number}&length=5&theme=${theme}&pixelated=true`;
 
   return (
-    <div style={{ display: 'flex' }}>
-      <img src={link} alt={`Count : ${number}`} style={{ userSelect: 'none', paddingRight:'1rem'}} /> 
-      <h3 style={{color:'pink'}}>Views</h3>
-    </div>
+   <div style={{ textAlign: 'center' }}>
+  <img src={link} alt={`Count : ${number}`} style={{ display: 'block', margin: 'auto', userSelect: 'none' }} /> 
+  <h4 style={{ color: 'white' ,height:'0vh'}}>Views!</h4>
+</div>
   );
 };
 
-// Function to get a random theme
 function getRandomTheme() {
   const themes = ['default', 'asoul', 'gelbooru', 'moebooru'];
   return themes[Math.floor(Math.random() * themes.length)];
