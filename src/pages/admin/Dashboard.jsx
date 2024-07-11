@@ -25,10 +25,10 @@ const Dashboard = () => {
 
     const Appbar =
      <Paper  elevation={3} sx={{ padding: '2rem', margin: '2rem 0', borderRadius: '1rem',bgcolor:'#0f121a',boxShadow: '0px 0px 3px rgba(255, 255, 255, 0.3)','&:hover': {boxShadow: '0px 0px 6px rgba(255, 255, 255, 0.6)'},  }} >
-        <Stack direction={'row'} alignItems={'center'} spacing={'1rem'} color={'white'} >
+        <Stack direction={'row'} alignItems={'center'} spacing={'10rem'} color={'white'} justifyContent={'center'}  >
             <MoecounterComponentShow/>
             
-            <Box flexGrow={1} />
+            
             <Typography display={{ xs: 'none', lg: 'block' }} color={'white'} textAlign={'center'} >{moment().format('dddd, D MMMM YYYY ')}</Typography>
         </Stack>
     </Paper>

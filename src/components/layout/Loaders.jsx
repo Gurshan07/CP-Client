@@ -1,7 +1,7 @@
-import { Grid, Skeleton, Stack } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { BouncingSkeleton } from "../styles/StyledComponents";
+import { Stack } from "@mui/material";
+import { useEffect, useState } from "react";
 import MoecounterComponentEverySec from "../moeCounterEverySec";
+import { BouncingSkeleton } from "../styles/StyledComponents";
 const LayoutLoader = () => {
   const [loadingText, setLoadingText] = useState('Loading');
 
@@ -80,4 +80,4 @@ const TypingLoader = () => {
       </Stack>
     );
   };
-  export { TypingLoader, LayoutLoader };
+  export { LayoutLoader, TypingLoader };

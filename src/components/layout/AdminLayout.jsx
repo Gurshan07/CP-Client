@@ -104,7 +104,7 @@ if(!isAdmin) return <Navigate to='/admin' />
 
             <Drawer  open={isMobile} onClose={handleClose}>
                 <Box sx={{bgcolor:'#0f121a',height:'100%'}}>
-                <Sidebar w='50vw' />
+                <Sidebar w='60vw' />
                 </Box>
             </Drawer>
         </Grid>
