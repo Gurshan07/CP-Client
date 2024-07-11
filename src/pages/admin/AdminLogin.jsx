@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { adminLogin, getAdmin } from "../../redux/thunks/admin";
 import KeyIcon from '@mui/icons-material/Key';
-
+import Face3SharpIcon from '@mui/icons-material/Face3Sharp';
 const AdminLogin = () => {
 
   const { isAdmin } = useSelector((state) => state.auth);
@@ -42,9 +42,10 @@ const AdminLogin = () => {
   </form>
 </>
                 
-            
-
         </Paper>
+        <a href="/">
+        <Face3SharpIcon  style={{borderRadius:'50% ',height:'2rem',width:'2rem',position: 'fixed',bottom: '2rem',right: '2rem',color:'grey'}}/>
+        </a>
     </Container>
   )
 }

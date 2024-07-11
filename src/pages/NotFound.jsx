@@ -2,7 +2,6 @@ import React from "react";
 import { Error as ErrorIcon } from "@mui/icons-material";
 import { Container, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-
 const NotFound = () => {
   return (
     <Container maxWidth="lg" sx={{ height: "100vh" }}>

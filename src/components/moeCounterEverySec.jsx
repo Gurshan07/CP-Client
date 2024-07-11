@@ -69,7 +69,7 @@ const MoecounterComponentEverySec = () => {
         {prevImageSrcRef.current && <img ref={imgRef} src={prevImageSrcRef.current} alt={`Count : ${number}`} style={{ userSelect: 'none', maxWidth: '100%', maxHeight: '100%' }} />}
         {imageSrc && <img src={imageSrc} alt={`Count : ${number}`} style={{ userSelect: 'none', maxWidth: '100%', maxHeight: '100%', position: 'absolute', opacity: 0 }} />}
       </div>
-      {number > 10 && <p style={{ color: 'white', textAlign: 'center' }}>{renderMessage()}</p>}
+      {number > 10 && <p className='unselectable' style={{ color: 'white', textAlign: 'center' }}>{renderMessage()}</p>}
     </>
   );
 };

@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import { Backdrop, Box, Button, CircularProgress, Drawer, Grid, IconButton, Stack, TextField, Tooltip, Typography } from '@mui/material'
-import React, { useState, memo, useEffect, lazy, Suspense } from 'react'
+import  { useState, memo, useEffect, lazy, Suspense } from 'react'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Edit as EditIcon, Menu as MenuIcon } from '@mui/icons-material';
@@ -170,16 +170,16 @@ const Groups = () => {
         )
 
     const GroupName = (
-        <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} spacing={'1rem'} padding={'3rem'} >
+        <Stack direction={'row'} alignItems={'center'}  justifyContent={'center'} spacing={'1rem'} padding={'3rem'} >
             {isEdit ?
                 (
                     <>
-                        <TextField className='customTextField' id='customTextFieldText' sx={{color:"red"}} value={groupNameUpdatedValue} onChange={(e) => setGroupNameUpdatedValue(e.target.value)} />
+                        <TextField  className='customTextField' id='customTextFieldText'  value={groupNameUpdatedValue} onChange={(e) => setGroupNameUpdatedValue(e.target.value)} />
                         <IconButton sx={{ color: 'grey', '&:hover': { backgroundColor: '#2e2e2e', '& svg': { color: 'white', filter: 'brightness(100%)', }, }, }}  onClick={updateGroupName} disabled={isLoadingGroupName}><CheckIcon /></IconButton>
                     </>
                 ) : (
-                    <>
-                        <Typography className='unselectable' color={'white'} fontWeight={'bold'} variant='h5'>{groupName}</Typography>
+                  <>
+                        <Typography  className='unselectable' color={'white'} fontWeight={'bold'} variant='h4'>{groupName}</Typography>
                         <IconButton sx={{ color: 'grey', '&:hover': { backgroundColor: '#2e2e2e', '& svg': { color: 'white', filter: 'brightness(100%)', }, }, }} onClick={() => setIsEdit(true)} disabled={isLoadingGroupName} ><EditIcon /></IconButton>
                  
                     </>
@@ -197,7 +197,13 @@ const Groups = () => {
         </Stack>
     )
         
-    
+    const AllMembers =(
+      members.map((i) => (
+            
+        <UserItem user={i} key={i._id} isAdded styling={{ boxShadow: "0 0 0.5rem  rgba(0,0,0,0.2)", padding: "1rem 2rem", borderRadius: "1rem", }} handler={removeMemberHandler} />
+      ))
+    )
+
     return myGroups.isLoading ? (
         <LayoutLoader />
       ) : (
@@ -209,25 +215,30 @@ const Groups = () => {
 
             </Grid>
 
-           <Grid item xs={12} sm={8} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', padding: '1rem 3rem' }} >
+           <Grid item  xs={12} sm={8}  sx={{justifyContent: 'center' ,display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', padding: '1rem 3rem' }} >
   {IconBtns}
   {groupName? (
     <>
       {GroupName}
-      <Typography className='unselectable' fontWeight={'bold'} color={'white'} margin={'2rem'} alignSelf={'flex-start'} variant='h5' marginLeft={'45%'} >Members</Typography>
       <Stack sx={{bgcolor: 'rgb(138, 145, 165,0.05)',border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px'}}  maxWidth={'45rem'} width={'100%'} className='unselectable' color={'grey'} boxSizing={'border-box'} padding={{ sm: '1rem', xs: '0', md: '1rem 2rem' }} borderRadius={'10px'} border={'0.1px solid grey'} height={'50vh'} overflow={'auto'}>
+        
         {isLoadingRemoveMember? (
           <CircularProgress />
         ) : (
-          members.map((i) => (
-            <UserItem user={i} key={i._id} isAdded styling={{ boxShadow: "0 0 0.5rem  rgba(0,0,0,0.2)", padding: "1rem 2rem", borderRadius: "1rem", }} handler={removeMemberHandler} />
-          ))
+          <>
+      <Typography sx={{ justifyContent:'center',alignItems:'center',textAlign: 'center' }}  className='unselectable' fontWeight={'bold'} color={'white'} margin={'2rem'} alignSelf={'center'} variant='h5' >Members</Typography>
+          
+          {AllMembers}
+          </>
+          
+          
         )}
+
       </Stack>
       {ButtonGroup}
     </>
   ) : (
-    <Typography variant="h6" color="white" textAlign="center" margin="2rem"> Select a Group</Typography>
+    <Typography variant="h4" color="white" textAlign="center"  margin="2rem"> No group selected</Typography>
   )}
 </Grid>
 

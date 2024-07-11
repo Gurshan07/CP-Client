@@ -32,10 +32,9 @@ const Notifications=()=> {
     useErrors([{ error, isError }]);
 
     return ( 
-    <Dialog open={isNotification} onClose={closeHandler} >
-      <Box sx={{bgcolor:'#0f121a'}}>
+    <Dialog PaperProps={{ sx: { bgcolor: '#0f121a', border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px' } }} open={isNotification} onClose={closeHandler} >
 
-            <Stack p={{xs:'1rem',sm:'2rem'}} maxWidth={'25rem'} className='unselectable' border={'solid 0.5px rgb(138, 145, 165,1)'} borderRadius={'15px'}  bgcolor={'#0f121a'} color={'white'} >
+            <Stack p={{xs:'1rem',sm:'2rem'}} maxWidth={'25rem'} className='unselectable'  bgcolor={'#0f121a'} color={'white'} >
                 <DialogTitle fontWeight={'bold'}>
                     Friend Requests
                 </DialogTitle>
@@ -50,7 +49,6 @@ const Notifications=()=> {
         )}
 
             </Stack>
-      </Box>
 
     </Dialog>
     )

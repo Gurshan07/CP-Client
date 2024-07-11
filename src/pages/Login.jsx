@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
@@ -19,6 +19,8 @@ import { server } from "../constants/config";
 import { userExists } from "../redux/reducers/auth";
 import { usernameValidator } from "../utils/validators";
 import MoecounterComponent from "../components/moeCounter";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -179,7 +181,7 @@ const Login = () => {
 
         </Paper>
         <a href="/admin">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa29YUqSmxdTUV97VUsQQIgqbdosW6ZjbucA&s" style={{borderRadius:'50% ',height:'2rem',position: 'fixed',bottom: '2rem',right: '2rem'}} />
+        <AdminPanelSettingsIcon  style={{borderRadius:'50% ',height:'2rem',position: 'fixed',bottom: '2rem',right: '2rem',color:'grey'}}  />
         </a>
     </Container>
     )

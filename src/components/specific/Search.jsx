@@ -46,25 +46,21 @@ const Search=()=> {
   }, [search.value]);
 
     return (
-    <Dialog   PaperProps={{ sx: { bgcolor: '#0f121a' } }} open={isSearch} onClose={searchCloseHandler} sx={{ opacity:'0.97', bgcolor:'#0f121a', '& .MuiDialog-paperScrollPaper': {
+    <Dialog PaperProps={{ sx: { bgcolor: '#0f121a', border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px' } }} open={isSearch} onClose={searchCloseHandler} sx={{ opacity:'0.97', bgcolor:'#0f121a', '& .MuiDialog-paperScrollPaper': {
       scrollbarGutter: 'stable',
       '&::-webkit-scrollbar': {
-        width: '5px',
-        height: '8px',
-        
+        width: '0px',
+        height: '0px',        
       },
       '&::-webkit-scrollbar-thumb': {
-        backgroundColor: 'grey',
-        borderRadius: '10px',
-        '&:hover': {
-          backgroundColor: 'white',
-        },
+        backgroundColor: 'transparent',
       },
       '&::-webkit-scrollbar-track': {
-        backgroundColor: 'black',
+        backgroundColor: '#0f121a',
         
       },}
    } }>
+
         <Box >
 
             <Stack  className='unselectable'  p={'2rem'} direction={'column'} maxWidth={'25rem'} maxHeight={'25rem'} bgcolor={'#0f121a'} color={'white'}  >

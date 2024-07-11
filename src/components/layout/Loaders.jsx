@@ -22,13 +22,13 @@ const LayoutLoader = () => {
 
   return (
     <>
-    <div style={{height:'30vh'}}></div>
+    <div   style={{height:'30vh'}}></div>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '30vh' }}>
         <div style={{ width: 100 }}>
           <MoecounterComponentEverySec />
         </div>
       </div>
-      <h2 style={{ color: 'white', textAlign: 'center' }}>{loadingText}</h2>
+      <h2 className='unselectable' style={{ color: 'white', textAlign: 'center' }}>{loadingText}</h2>
     </>
   );
 };

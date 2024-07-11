@@ -60,11 +60,10 @@ const NewGroup = () => {
     };
 
     return (
-        <Dialog  sx={{opacity:'inherit',bgcolor: 'rgb(138, 145, 165,0.01)',}} onClose={closeHandler} open={isNewGroup} >
-            <Box bgcolor={'#0f121a'}>
+        <Dialog  PaperProps={{ sx: { bgcolor: '#0f121a', border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px' } }}  sx={{opacity:'inherit',bgcolor: 'rgb(138, 145, 165,0.01)',}} onClose={closeHandler} open={isNewGroup} >
 
             
-            <Stack p={{ xs: '1rem', sm: '3rem' }} maxWidth={'25rem'} spacing={'1.5rem'}  className='unselectable' color={'white'} sx={{bgcolor: '#0f121a',border :'solid 0.5px rgb(138, 145, 165,0.25)', borderRadius:'15px'}} >
+            <Stack p={{ xs: '1rem', sm: '3rem' }} maxWidth={'25rem'} spacing={'1.5rem'}  className='unselectable' color={'white'}  >
                 <DialogTitle sx={{ textAlign: 'center' }} fontWeight={'bold'}>
                     New Group
                 </DialogTitle>
@@ -85,7 +84,6 @@ const NewGroup = () => {
                 </Stack>
 
             </Stack>
-            </Box>
         </Dialog>
     )
 
