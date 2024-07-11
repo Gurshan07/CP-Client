@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/display-name */
 import { Box, Drawer, Grid, Skeleton, Typography } from "@mui/material";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -96,7 +96,7 @@ const AppLayout = () => (WrappedComponent) => {
     return (
       <>
         <Title />
-        <Header />
+        <Header  />
 
         <DeleteChatMenu
           dispatch={dispatch}
@@ -106,15 +106,26 @@ const AppLayout = () => (WrappedComponent) => {
         {isLoading ? (
           <Skeleton />
         ) : (
-          <Drawer open={isMobile} onClose={handleMobileClose} PaperProps={{
-            style: {
+          <Drawer open={isMobile} onClose={handleMobileClose} PaperProps={{ 
+            sx: {
+              paddingTop:'1rem',
+              overflow:'hidden',
+              bgcolor:'#0f121a',
             },
-          }} >
 
-            <Box sx={{ bgcolor: '#0f121a', height: '100%' }}>
+           
+          }}  >
+
               {data?.chats?.length === 0 ?
-                <Typography className='unselectable' p={'2rem'} variant='h5' textAlign={'center'} color={'white'}>No Friends Added</Typography>
+              <>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+              <Typography className='unselectable' p={'2rem'} variant='h5' textAlign={'center'}   color={'white'}>No Friends Added</Typography>
+              </div>
+              </>
                 :
+                <>
+              <Typography className='unselectable' variant='h5' textAlign={'center'}  color={'white'}> Chats </Typography>
+
                 <ChatList
                   w="65vw"
                   chats={data?.chats}
@@ -123,10 +134,9 @@ const AppLayout = () => (WrappedComponent) => {
                   newMessagesAlert={newMessagesAlert}
                   onlineUsers={onlineUsers}
                 />
+                </>
 
               }
-            </Box>
-
           </Drawer>
         )}
 
@@ -142,6 +152,7 @@ const AppLayout = () => (WrappedComponent) => {
                 <Typography className='unselectable' p={'2rem'} variant='h5' textAlign={'center'} color={'white'}>No Friends Added</Typography>
                 :
                   <ChatList
+                  
                     chats={data?.chats}
                     chatId={chatId}
                     handleDeleteChat={handleDeleteChat}

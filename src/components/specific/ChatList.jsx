@@ -12,22 +12,7 @@ const ChatList=({w='100%',chats=[],chatId,onlineUsers=[],newMessagesAlert=[
 })=> {
     
     return (
-        <Stack width={w} direction={'column'} overflow={'auto'} marginTop={'1rem'}  height={'100%'} bgcolor={"#0f121a"} sx={{'&::-webkit-scrollbar': {
-            width: '5px',
-            height: '8px',
-            borderRadius: '10px',
-          },
-          '&::-webkit-scrollbar-thumb': {
-            backgroundColor: 'grey',
-            borderRadius: '10px',
-            '&:hover': {
-              backgroundColor: 'white',
-            },
-          },
-          '&::-webkit-scrollbar-track': {
-            backgroundColor: '#1d1d1d',
-            borderRadius: '10px',
-          }}} >
+      <Stack width={w} direction={'column'}  sx={{overflow:'auto','&::-webkit-scrollbar': {display: 'none'},}} marginTop={'0.5rem'}  height={'90vh'} >
 
                 {
                     chats?.map((data,index)=>{
@@ -41,7 +26,7 @@ const ChatList=({w='100%',chats=[],chatId,onlineUsers=[],newMessagesAlert=[
                       onlineUsers.includes(member)
                     );
 
-                        return <ChatItem  index={index} newMessageAlert={newMessageAlert}  isOnline={isOnline}   avatar={avatar} name={name} _id={_id} key={_id} groupChat={groupChat} sameSender={chatId===_id} handleDeleteChat={handleDeleteChat} />
+                        return <ChatItem   index={index} newMessageAlert={newMessageAlert}  isOnline={isOnline}   avatar={avatar} name={name} _id={_id} key={_id} groupChat={groupChat} sameSender={chatId===_id} handleDeleteChat={handleDeleteChat} />
                     })
                 }
         </Stack>
