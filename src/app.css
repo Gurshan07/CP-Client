@@ -70,15 +70,16 @@
     background-color:  rgb(138, 145, 165,0.5);
   }
 
-    .css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
-        min-height: 52px;
-        padding-right: 2px;
-        color: white;
+    .MuiTablePagination-toolbar {
+      min-height: 52px;
+      padding-right: 2px;
+      color: white;
     }
-    .css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar .MuiSvgIcon-root {
-      color: #ffffff;  
+   
+    .MuiTablePagination-toolbar .MuiSvgIcon-root {
+      color: white;
     }
-.css-160iaj4-MuiDataGrid-root .MuiDataGrid-scrollbarFiller {
+.MuiDataGrid-root .MuiDataGrid-scrollbarFiller {
   min-width: calc(var(--DataGrid-hasScrollY)* var(--DataGrid-scrollbarSize));
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
@@ -86,26 +87,22 @@
   background-color: #0f121a;
   color: white;
 }
-.css-160iaj4-MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer .MuiSvgIcon-root {
-  color: #ffffff; /* Add this line to change the icon color to white */
+.MuiDataGrid-root .MuiDataGrid-filler {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #0f121a;
 }
+
 .MuiDataGrid-columnHeaderTitleContainer svg {
-  fill: #FFFFFF;  
+  fill: white;  
 }
 
 @media (hover: hover) {
-  .css-160iaj4-MuiDataGrid-root .MuiDataGrid-columnHeaders:hover .MuiDataGrid-columnSeparator, .css-160iaj4-MuiDataGrid-root .MuiDataGrid-columnHeaders:hover .MuiDataGrid-columnSeparator--resizing {
+  .MuiDataGrid-root .MuiDataGrid-columnHeaders:hover .MuiDataGrid-columnSeparator {
       visibility: visible;
       width: auto;
       color: white;
   }
 }
 
-.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root {
-  background-color: red; /* or any other gray shade you prefer */
-  color: green; /* or any other gray shade you prefer */
-}
-.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-  color: white;
-}
