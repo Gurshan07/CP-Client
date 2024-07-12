@@ -1,6 +1,6 @@
 import { Close as CloseIcon, Menu as MenuIcon ,Dashboard as DashboardIcon, ManageAccounts as ManageAccountsIcon, Groups as GroupsIcon, Forum as ForumIcon ,ExitToApp as ExitToAppIcon} from '@mui/icons-material'
 import { Box, Drawer, Grid, IconButton, Stack, Typography, styled } from '@mui/material'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link as LinkComponent, Navigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { adminLogout } from "../../redux/thunks/admin";
@@ -12,7 +12,7 @@ const Link = styled(LinkComponent)`
     color:grey;
     
     &:hover{
-        color:#b7b7b7;
+        color:white;
     }
     `
 const adminTabs = [

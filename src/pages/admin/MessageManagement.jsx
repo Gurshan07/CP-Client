@@ -2,7 +2,7 @@
 import { useFetchData } from "6pp";
 import { Avatar, Box, Skeleton, Stack } from "@mui/material";
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import AdminLayout from "../../components/layout/AdminLayout";
 import renderAttachment  from '../../components/shared/renderAttachment'
 import Table from "../../components/shared/Table";
