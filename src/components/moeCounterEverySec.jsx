@@ -1,13 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const MoecounterComponentEverySec = () => {
-  function getRandomTheme() {
-    const themes = ['default', 'asoul', 'gelbooru', 'moebooru'];
-    return themes[Math.floor(Math.random() * 4)];
-  }
-
   const [number, setNumber] = useState(1);
-  const [theme, setTheme] = useState(getRandomTheme());
   const [imageSrc, setImageSrc] = useState('');
   const [loading, setLoading] = useState(false);
   const prevImageSrcRef = useRef('');
@@ -16,9 +10,7 @@ const MoecounterComponentEverySec = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setNumber(prevNumber => prevNumber + 1);
-      setTheme(getRandomTheme());
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -28,7 +20,7 @@ const MoecounterComponentEverySec = () => {
     const loadImage = async () => {
       setLoading(true);
       const length = number.toString().length;
-      const newImageSrc = `https://api.sefinek.net/api/v2/moecounter?number=${number}&length=${length}&theme=${theme}&pixelated=true`;
+      const newImageSrc = `https://api.sefinek.net/api/v2/moecounter?number=${number}&length=${length}&theme=default&pixelated=true`;
       try {
         const img = new Image();
         img.src = newImageSrc;
@@ -50,7 +42,7 @@ const MoecounterComponentEverySec = () => {
     };
 
     loadImage();
-  }, [number, theme]);
+  }, [number]);
 
   const renderMessage = () => {
     if (number > 80) return "Almost Done!";
