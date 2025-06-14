@@ -29,7 +29,6 @@ const MoecounterComponentEverySec = () => {
       setLoading(true);
       const length = number.toString().length;
       const newImageSrc = `https://api.sefinek.net/api/v2/moecounter?number=${number}&length=${length}&theme=${theme}&pixelated=true`;
-
       try {
         const img = new Image();
         img.src = newImageSrc;
@@ -62,6 +61,7 @@ const MoecounterComponentEverySec = () => {
     if (number > 10) return "Giving Server a push!";
     return "";
   };
+  console.log(imageSrc)
 
   return (
     <>
