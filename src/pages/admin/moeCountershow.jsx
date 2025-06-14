@@ -16,7 +16,7 @@ const MoecounterComponentShow = () => {
 
   const number = data ? data.value : 0; 
 
-  const link = `https://api.sefinek.net/api/v2/moecounter?number=${number}&length=5&theme=${theme}&pixelated=true`;
+  const link = `https://api.sefinek.net/api/v2/moecounter?number=4&length=5&theme=default&pixelated=true`;
 
   return (
    <div style={{ textAlign: 'center' }}>
